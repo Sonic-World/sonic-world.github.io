@@ -163,36 +163,6 @@ wireTabs("data-case", selectCaseGroup);
 caseSelector.addEventListener("change", () => renderCase(Number(caseSelector.value)));
 selectCaseGroup("motion");
 
-document.getElementById("copy-citation").addEventListener("click", async () => {
-  const text = document.getElementById("bibtex").textContent;
-  let copied = false;
-  try {
-    if (!navigator.clipboard) throw new Error("Clipboard API unavailable");
-    await navigator.clipboard.writeText(text);
-    copied = true;
-  } catch (_) {
-    const temporary = document.createElement("textarea");
-    temporary.value = text;
-    temporary.style.position = "fixed";
-    temporary.style.opacity = "0";
-    document.body.append(temporary);
-    temporary.select();
-    copied = document.execCommand("copy");
-    temporary.remove();
-  }
-  const label = document.querySelector("#copy-citation span");
-  label.textContent = copied ? "Copied" : "Select text";
-  document.getElementById("copy-status").textContent = copied ? "Citation copied to clipboard." : "Select the citation text to copy it.";
-  if (!copied) {
-    const range = document.createRange();
-    range.selectNodeContents(document.getElementById("bibtex"));
-    const selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(range);
-  }
-  setTimeout(() => { label.textContent = "Copy"; }, 2000);
-});
-
 const navLinks = Array.from(document.querySelectorAll(".section-nav a"));
 if ("IntersectionObserver" in window) {
   const observer = new IntersectionObserver(entries => {
