@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SonicWorld: source-centric latent dynamics for spatial audio reasoning. Sonic-Bench, persistent source states, and target-specific spatial question answering.">
+  <meta name="theme-color" content="#F3F9FE">
+  <title>SonicWorld</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23326A9D'/%3E%3Cpath d='M7 15v3m6-10v16m6-12v8m6-6v4' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="assets/lucide.min.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#abstract">Skip to content</a>
+  <header class="paper-header" id="top">
+    <div class="container">
+      <p class="paper-category">Spatial audio &amp; language</p>
+      <h1>SonicWorld</h1>
+      <p class="paper-title">Source-Centric Latent Dynamics<br class="desktop-break"> for Spatial Audio Reasoning</p>
+      <div class="authors" aria-label="Authors; select a name to email">
+        <div class="author-row">
+          <a href="mailto:Chenlong.Wei23@student.xjtlu.edu.cn" title="Chenlong.Wei23@student.xjtlu.edu.cn">Chenlong Wei<sup>1</sup></a>
+          <a href="mailto:haw168@ucsd.edu" title="haw168@ucsd.edu">Hanling Wang<sup>2</sup></a>
+          <a href="mailto:ml1325@ic.ac.uk" title="ml1325@ic.ac.uk">Mingjin Lou<sup>3</sup></a>
+          <a href="mailto:yus120@ucsd.edu" title="yus120@ucsd.edu">Yufan Shi<sup>2</sup></a>
+          <a href="mailto:20232005125@llu.edu.cn" title="20232005125@llu.edu.cn">Yandong Sun<sup>4</sup></a>
+        </div>
+        <div class="author-row">
+          <a href="mailto:ziy040@ucsd.edu" title="ziy040@ucsd.edu">Sheldon Yu<sup>2</sup></a>
+          <a href="mailto:Xiaohui.Zhu@xjtlu.edu.cn" title="Xiaohui.Zhu@xjtlu.edu.cn">Xiaohui Zhu<sup>1</sup></a>
+          <a href="mailto:Xiaobo.Jin@xjtlu.edu.cn" title="Xiaobo.Jin@xjtlu.edu.cn">Xiaobo Jin<sup>1</sup></a>
+          <a href="mailto:wangyw.evan@gmail.com" title="wangyw.evan@gmail.com">Yiwei Wang<sup>5</sup></a>
+        </div>
+      </div>
+      <div class="affiliations">
+        <span><sup>1</sup> Xi'an Jiaotong-Liverpool University</span>
+        <span><sup>2</sup> University of California, San Diego</span>
+        <span><sup>3</sup> Imperial College London</span>
+        <span><sup>4</sup> Lyuliang University</span>
+        <span><sup>5</sup> Southeast University</span>
+      </div>
+      <div class="resources">
+        <a class="resource primary" href="assets/SonicWorld.pdf" target="_blank" rel="noopener"><i data-lucide="file-text" aria-hidden="true"></i>Paper</a>
+        <a class="resource outline" href="#examples"><i data-lucide="scan-eye" aria-hidden="true"></i>Visualizations</a>
+      </div>
+      <p class="release-note">Code and dataset will be released upon paper acceptance.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="teaser container" aria-label="Research overview">
+      <p class="teaser-statement">Reason about <strong>the same sound source across time</strong>,<br class="desktop-break"> from a spatial recording to source- and time-specific answers.</p>
+      <figure class="paper-figure">
+        <div class="figure-surface">
+          <img src="assets/dataset-pipeline.webp" width="2401" height="895" alt="Sonic-Bench pipeline: two sources move through an indoor scene, source-specific room impulse responses form an FOA mixture, and aligned trajectories answer target-specific questions.">
+          <button class="zoom-button" type="button" data-zoom="assets/dataset-pipeline.webp" data-title="Sonic-Bench task overview" aria-label="Enlarge Sonic-Bench task overview" title="Enlarge figure"><i data-lucide="maximize-2" aria-hidden="true"></i></button>
+        </div>
+        <figcaption>One recording. Multiple sources. Questions grounded in <strong>who</strong>, <strong>where</strong>, and <strong>when</strong>.</figcaption>
+      </figure>
+    </section>
+
+    <nav class="section-nav" aria-label="On this page">
+      <div class="container"><a href="#abstract">Abstract</a><a href="#method">Method</a><a href="#benchmark">Sonic-Bench</a><a href="#results">Results</a><a href="#examples">Visualizations</a><a href="#citation" hidden>Citation</a></div>
+    </nav>
+
+    <section id="abstract" class="section abstract-section">
+      <div class="reading-width">
+        <p class="eyebrow">The idea</p><h2>Abstract</h2>
+        <p>Dynamic spatial audio reasoning requires a model to associate changing acoustic observations with the correct source and recover its spatial state at a queried time or interval, a challenge intensified by overlapping speech and source motion. To study this problem, we introduce <strong>Sonic-Bench</strong>, comprising 2.8K first-order Ambisonics clips and 28.8K target-specific question-answer pairs across 480 simulated indoor scenes. The benchmark covers localization, distance estimation, and motion reasoning in single- and dual-source settings.</p>
+        <p>We further propose <strong>SonicWorld</strong>, which integrates physical, learned acoustic, and semantic features into persistent source states through learned transitions and recurrent updates, and projects them into an Omni LLM for spatial reasoning. Compared with Spatial-Omni on the Sonic-Bench test split, SonicWorld improves direction accuracy from <strong>31.98% to 34.69%</strong> and reduces azimuth error from <strong>57.22&deg; to 48.01&deg;</strong>. In zero-shot transfer to Spatial LibriSpeech, SonicWorld retains strong localization performance, achieving <strong>72.39%</strong> direction accuracy and <strong>20.88&deg;</strong> azimuth error, compared with 9.36% and 94.22&deg; for Spatial-Omni.</p>
+      </div>
+    </section>
+
+    <section id="method" class="section">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">SonicWorld</p><h2>From acoustic evidence to persistent source states</h2><p>Associate observations with individual sources, recover their geometry, and connect their temporal states to language.</p></div>
+        <figure class="paper-figure">
+          <div class="figure-surface">
+            <img src="assets/architecture.webp" width="2401" height="1329" loading="lazy" alt="SonicWorld architecture with physical, neural and semantic evidence, recurrent source binding, bidirectional refinement, geometric prediction, spatial projection and Omni LLM fine-tuning.">
+            <button class="zoom-button" type="button" data-zoom="assets/architecture.webp" data-title="SonicWorld architecture" aria-label="Enlarge SonicWorld architecture" title="Enlarge figure"><i data-lucide="maximize-2" aria-hidden="true"></i></button>
+          </div>
+          <figcaption>Physical, neural, and frozen-BEATs semantic evidence are fused before source binding. Source-state features and geometry become spatial tokens for an Omni LLM.</figcaption>
+        </figure>
+        <div class="method-steps">
+          <article><span class="step-number">01</span><h3>Multi-cue evidence</h3><p>Combine physical spatial features, learned cross-channel waveform features, and a frozen-BEATs semantic summary.</p></article>
+          <article><span class="step-number">02</span><h3>Source-centric dynamics</h3><p>Learn transitions and recurrent updates for persistent source slots. Bidirectional refinement and masked-state recovery incorporate temporal context.</p></article>
+          <article><span class="step-number">03</span><h3>Spatial language modeling</h3><p>Project state sequences into local temporal and source-summary tokens, then align the projector and adapt the Omni LLM with LoRA.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="benchmark" class="section benchmark-section">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">Sonic-Bench</p><h2>A benchmark for dynamic, source-specific reasoning</h2><p>Ten-second first-order Ambisonics recordings paired with complete source trajectories and questions about a target voice.</p></div>
+        <div class="statistics">
+          <div><span class="stat-value">2,880</span><span class="stat-label">FOA recordings</span></div>
+          <div><span class="stat-value">28,800</span><span class="stat-label">Question-answer pairs</span></div>
+          <div><span class="stat-value">480</span><span class="stat-label">Indoor scenes</span></div>
+          <div><span class="stat-value">4,800</span><span class="stat-label">Source trajectories</span></div>
+        </div>
+        <div class="benchmark-details">
+          <div><h3>Source, time, and spatial state</h3><p>Each recording has one designated target and two query times. Five questions per time probe its direction, azimuth, elevation, distance, and movement over the preceding one-second interval.</p><p class="split-description">The scene-disjoint split contains <strong>2,400 training clips from 400 scenes</strong> and <strong>480 test clips from 80 scenes</strong>. Six source-motion configurations cover stationary and moving targets, with and without an interferer.</p></div>
+          <div><h3>Five spatial queries</h3><ul class="task-list">
+            <li><i data-lucide="compass" aria-hidden="true"></i>Position direction<small>8 sectors</small></li>
+            <li><i data-lucide="rotate-cw" aria-hidden="true"></i>Azimuth<small>degrees</small></li>
+            <li><i data-lucide="move-vertical" aria-hidden="true"></i>Elevation<small>degrees</small></li>
+            <li><i data-lucide="ruler" aria-hidden="true"></i>Distance<small>meters</small></li>
+            <li><i data-lucide="route" aria-hidden="true"></i>Movement direction<small>1-second interval</small></li>
+          </ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="results" class="section">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">Experimental results</p><h2>Evaluation across three spatial-audio datasets</h2><p>In-domain evaluation on Sonic-Bench and zero-shot transfer to SpatialSceneQA and Spatial LibriSpeech (SLS). SonicWorld and spatial baselines use Qwen2.5-Omni-7B; summary comparisons are against Spatial-Omni.</p></div>
+        <div class="result-highlights">
+          <article class="result-highlight">
+            <h3 id="sonic-bench-comparison">Sonic-Bench</h3><p>In-domain &middot; 480 test clips</p>
+            <table class="summary-comparison" aria-labelledby="sonic-bench-comparison">
+              <thead><tr><th scope="col"><span class="visually-hidden">Metric</span></th><th scope="col">Spatial-Omni</th><th scope="col">SonicWorld</th></tr></thead>
+              <tbody><tr><th scope="row">Direction accuracy <span>&uarr;</span></th><td>31.98%</td><td><strong>34.69%</strong></td></tr><tr><th scope="row">Azimuth MAE <span>&darr;</span></th><td>57.22&deg;</td><td><strong>48.01&deg;</strong></td></tr></tbody>
+            </table>
+          </article>
+          <article class="result-highlight">
+            <h3 id="spatialsceneqa-comparison">SpatialSceneQA</h3><p>Zero-shot &middot; 622 selected clips</p>
+            <table class="summary-comparison" aria-labelledby="spatialsceneqa-comparison">
+              <thead><tr><th scope="col"><span class="visually-hidden">Metric</span></th><th scope="col">Spatial-Omni</th><th scope="col">SonicWorld</th></tr></thead>
+              <tbody><tr><th scope="row">Azimuth MAE <span>&darr;</span></th><td>84.03&deg;</td><td><strong>49.35&deg;</strong></td></tr><tr><th scope="row">Elevation MAE <span>&darr;</span></th><td>30.63&deg;</td><td><strong>23.12&deg;</strong></td></tr></tbody>
+            </table>
+          </article>
+          <article class="result-highlight">
+            <h3 id="sls-comparison">Spatial LibriSpeech (SLS)</h3><p>Zero-shot &middot; 8,512 selected clips</p>
+            <table class="summary-comparison" aria-labelledby="sls-comparison">
+              <thead><tr><th scope="col"><span class="visually-hidden">Metric</span></th><th scope="col">Spatial-Omni</th><th scope="col">SonicWorld</th></tr></thead>
+              <tbody><tr><th scope="row">Direction accuracy <span>&uarr;</span></th><td>9.36%</td><td><strong>72.39%</strong></td></tr><tr><th scope="row">Azimuth MAE <span>&darr;</span></th><td>94.22&deg;</td><td><strong>20.88&deg;</strong></td></tr></tbody>
+            </table>
+          </article>
+        </div>
+        <div class="table-toolbar">
+          <div class="result-controls">
+          <div class="segmented dataset-tabs" role="tablist" aria-label="Evaluation dataset">
+            <button type="button" role="tab" id="result-sonic" aria-controls="results-panel" aria-selected="true" data-result="sonic">Sonic-Bench</button>
+            <button type="button" role="tab" id="result-spatialsceneqa" aria-controls="results-panel" aria-selected="false" tabindex="-1" data-result="spatialsceneqa">SpatialSceneQA</button>
+            <button type="button" role="tab" id="result-sls" aria-controls="results-panel" aria-selected="false" tabindex="-1" data-result="sls" title="Spatial LibriSpeech">SLS</button>
+          </div>
+          <label class="result-select-wrap" id="result-source-wrap"><span class="visually-hidden">Sonic-Bench source setting</span><select id="result-source"><option value="single">Single source</option><option value="dual">Dual source</option></select></label>
+          </div>
+          <span class="table-source" id="table-source">Sonic-Bench &middot; Table 1</span>
+        </div>
+        <div id="results-panel" role="tabpanel" aria-labelledby="result-sonic" tabindex="0">
+          <p class="result-description" id="result-description">Sonic-Bench: 160 single-source test clips, covering localization and movement reasoning.</p>
+          <div class="table-scroll" role="region" aria-labelledby="results-caption" tabindex="0"><table id="results-table"><caption class="visually-hidden" id="results-caption">Single-source results on Sonic-Bench</caption><thead id="results-head"></thead><tbody id="results-body"></tbody></table></div>
+          <p class="metric-note" id="metric-note">Dir. and Mot. are accuracies (%); Az. and El. are MAE (&deg;); Dist. is MAE (m). Bold indicates the best value in each metric.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="examples" class="section examples-section">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">Qualitative examples</p><h2>Following sources through motion and silence</h2><p>Movement answers, decoded trajectories, and source-state continuity across speech pauses.</p></div>
+        <div class="gallery-toolbar">
+          <div class="segmented" role="tablist" aria-label="Visualization type">
+            <button type="button" role="tab" id="case-motion" aria-controls="case-panel" aria-selected="true" data-case="motion">Motion reasoning</button>
+            <button type="button" role="tab" id="case-decoded" aria-controls="case-panel" aria-selected="false" tabindex="-1" data-case="decoded">Decoded trajectories</button>
+            <button type="button" role="tab" id="case-pauses" aria-controls="case-panel" aria-selected="false" tabindex="-1" data-case="pauses">Speech pauses</button>
+          </div>
+          <label class="case-select-wrap" id="case-selector-wrap" hidden>Scene<select id="case-selector" aria-label="Choose a scene"></select></label>
+        </div>
+        <div id="case-panel" role="tabpanel" aria-labelledby="case-motion" tabindex="0">
+          <figure class="paper-figure gallery-figure">
+            <div class="figure-surface"><img id="case-image" src="assets/motion-cases.webp" width="2401" height="704" loading="lazy" alt="Single- and dual-source movement examples comparing SonicWorld with Spatial-Omni and Classical-IV."><button id="case-zoom" class="zoom-button" type="button" data-zoom="assets/motion-cases.webp" data-title="Source-specific movement reasoning" aria-label="Enlarge movement examples" title="Enlarge figure"><i data-lucide="maximize-2" aria-hidden="true"></i></button></div>
+            <figcaption id="case-caption">SonicWorld correctly predicts Front-Left for the male target and Back-Right for the female target in the queried intervals.</figcaption>
+          </figure>
+          <p class="case-text" id="case-description">Orange marks the queried intervals. Source identity and temporal context distinguish the target's movement from that of another speaker.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="citation" class="section" hidden>
+      <div class="reading-width">
+        <div class="citation-head"><h2>BibTeX</h2><button class="icon-button" type="button" id="copy-citation" title="Copy citation"><i data-lucide="copy" aria-hidden="true"></i><span>Copy</span></button></div>
+        <pre class="citation"><code id="bibtex">@misc{wei2026sonicworld,
+  title = {SonicWorld: Source-Centric Latent Dynamics for
+           Spatial Audio Reasoning},
+  author = {Chenlong Wei and Hanling Wang and Mingjin Lou and
+            Yufan Shi and Yandong Sun and Sheldon Yu and
+            Xiaohui Zhu and Xiaobo Jin and Yiwei Wang},
+  year = {2026}
+}</code></pre>
+        <span class="visually-hidden" id="copy-status" role="status" aria-live="polite"></span>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container"><a href="#top" class="back-to-top" aria-label="Back to top" title="Back to top"><i data-lucide="arrow-up" aria-hidden="true"></i></a></div></footer>
+
+  <dialog id="figure-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-toolbar"><h2 id="dialog-title">Figure</h2><div class="dialog-actions"><button type="button" id="zoom-out" class="icon-button" aria-label="Zoom out" title="Zoom out"><i data-lucide="minus" aria-hidden="true"></i></button><output id="zoom-level" aria-live="polite">100%</output><button type="button" id="zoom-in" class="icon-button" aria-label="Zoom in" title="Zoom in"><i data-lucide="plus" aria-hidden="true"></i></button><button type="button" id="close-dialog" class="icon-button" aria-label="Close figure" title="Close figure"><i data-lucide="x" aria-hidden="true"></i></button></div></div>
+    <div class="dialog-image"><img id="dialog-img" alt=""></div>
+  </dialog>
+</body>
+</html>
