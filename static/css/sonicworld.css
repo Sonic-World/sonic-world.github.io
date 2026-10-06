@@ -28,6 +28,7 @@ strong { font-weight: 650; }
 sup { font-size: .67em; padding-left: 2px; }
 .affiliations { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px 18px; font-size: 14px; line-height: 1.7; color: var(--muted); max-width: 930px; margin: 14px auto 0; }
 .affiliations span { white-space: nowrap; }
+.corresponding-author { margin-top: 8px; color: var(--muted); font-size: 14px; line-height: 1.7; text-align: center; }
 .publication-links { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 24px; }
 .publication-links .button { border-radius: 999px !important; min-height: 46px; height: auto; padding: .68rem 1.35rem; gap: 9px; margin: 0 !important; font-size: 15px; }
 .release-note { font-size: 13px; color: var(--muted); margin-top: 14px; line-height: 1.5; text-wrap: balance; }
