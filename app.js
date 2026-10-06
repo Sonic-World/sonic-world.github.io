@@ -123,17 +123,17 @@ resultSource.addEventListener("change", () => {
 selectResultDataset("sonic");
 
 const cases = {
-  motion: [{image:"motion-cases", title:"Source-specific movement reasoning", width:2401, height:704,
+  motion: [{image:"motion-cases", title:"Source-specific movement reasoning", width:2800, height:1533,
     label:"Single- and dual-source examples", caption:"SonicWorld correctly predicts Front-Left for the male target and Back-Right for the female target in the queried intervals.",
     description:"Orange marks the queried intervals. Source identity and temporal context distinguish the target's movement from that of another speaker."}],
   decoded: [
-    {image:"decoded-single", title:"Decoded states of a single moving source", width:2401, height:1503, label:"Single moving source", caption:"A single source's decoded trajectory and receiver-centered coordinates, compared with ground truth (Figure E.3).", description:"Solid lines show decoded trajectories; dashed lines show ground truth. Circles and triangles mark trajectory starts and ends."},
-    {image:"decoded-dual", title:"Decoded states of two moving sources", width:2401, height:1503, label:"Two moving sources", caption:"Two simultaneously moving speakers represented in separate source slots (Figure E.4).", description:"Colors distinguish the sources. The front-coordinate plots preserve their different temporal trends."},
-    {image:"decoded-mixed", title:"Decoded states of moving and stationary sources", width:2401, height:1503, label:"Moving + stationary sources", caption:"A moving source and a stationary source recovered from the same mixture (Figure E.5).", description:"The source-state trajectories distinguish a changing source position from the nearly constant position of the other speaker."},
+    {image:"decoded-single", title:"Decoded states of a single moving source", width:2800, height:1944, label:"Single moving source", caption:"A single source's decoded trajectory and receiver-centered coordinates, compared with ground truth (Figure E.3).", description:"Solid lines show decoded trajectories; dashed lines show ground truth. Circles and triangles mark trajectory starts and ends."},
+    {image:"decoded-dual", title:"Decoded states of two moving sources", width:2800, height:1944, label:"Two moving sources", caption:"Two simultaneously moving speakers represented in separate source slots (Figure E.4).", description:"Colors distinguish the sources. The front-coordinate plots preserve their different temporal trends."},
+    {image:"decoded-mixed", title:"Decoded states of moving and stationary sources", width:2800, height:1944, label:"Moving + stationary sources", caption:"A moving source and a stationary source recovered from the same mixture (Figure E.5).", description:"The source-state trajectories distinguish a changing source position from the nearly constant position of the other speaker."},
   ],
   pauses: [
-    {image:"pause-stationary", title:"Speech pause with a stationary interferer", width:2401, height:1359, label:"Stationary interferer", caption:"The target continues moving during a speech pause from 2.58 to 5.08 seconds (Figure E.6).", description:"Blue, gold, and green mark before, during, and after the pause. A and B mark pause onset and speech resumption; the right panels show speech activity, coordinates, and position error."},
-    {image:"pause-moving", title:"Speech pause with a moving interferer", width:2401, height:1343, label:"Moving interferer", caption:"Both speakers continue moving during the target's 1.08-second pause, from 6.75 to 7.83 seconds (Figure E.7).", description:"The source-state model uses the complete clip with bidirectional refinement to connect the target's trajectory before and after the speech pause."},
+    {image:"pause-stationary", title:"Speech pause with a stationary interferer", width:2800, height:1755, label:"Stationary interferer", caption:"The target continues moving during a speech pause from 2.58 to 5.08 seconds (Figure E.6).", description:"Blue, gold, and green mark before, during, and after the pause. A and B mark pause onset and speech resumption; the right panels show speech activity, coordinates, and position error."},
+    {image:"pause-moving", title:"Speech pause with a moving interferer", width:2800, height:1755, label:"Moving interferer", caption:"Both speakers continue moving during the target's 1.08-second pause, from 6.75 to 7.83 seconds (Figure E.7).", description:"The source-state model uses the complete clip with bidirectional refinement to connect the target's trajectory before and after the speech pause."},
   ],
 };
 let currentGroup = "motion";
@@ -141,7 +141,7 @@ const caseSelector = document.getElementById("case-selector");
 function renderCase(index) {
   const scene = cases[currentGroup][index];
   const image = document.getElementById("case-image");
-  image.src = `assets/${scene.image}.webp`;
+  image.src = `assets/${scene.image}.webp?v=20261006-ebcd96cc`;
   image.alt = scene.title;
   image.width = scene.width;
   image.height = scene.height;

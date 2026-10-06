@@ -12,11 +12,11 @@
   <meta property="og:title" content="SonicWorld: Source-Centric Latent Dynamics for Spatial Audio Reasoning">
   <meta property="og:description" content="Persistent source states for dynamic spatial audio reasoning. Explore SonicWorld, Sonic-Bench, and source-specific spatial question answering.">
   <meta property="og:url" content="https://sonic-world.github.io/">
-  <meta property="og:image" content="https://sonic-world.github.io/assets/dataset-pipeline.webp">
+  <meta property="og:image" content="https://sonic-world.github.io/assets/dataset-pipeline.webp?v=20261006-ebcd96cc">
   <meta property="og:image:alt" content="Sonic-Bench: spatial audio and source-specific questions">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="SonicWorld">
-  <meta name="twitter:image" content="https://sonic-world.github.io/assets/dataset-pipeline.webp">
+  <meta name="twitter:image" content="https://sonic-world.github.io/assets/dataset-pipeline.webp?v=20261006-ebcd96cc">
 
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23326A9D'/%3E%3Cpath d='M7 15v3m6-10v16m6-12v8m6-6v4' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +26,7 @@
   <link rel="stylesheet" href="static/css/index.css">
   <link rel="stylesheet" href="static/css/sonicworld.css">
   <script src="assets/lucide.min.js" defer></script>
-  <script src="app.js" defer></script>
+  <script src="app.js?v=20261006-ebcd96cc" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#abstract">Skip to content</a>
@@ -58,7 +58,7 @@
         <span><sup>5</sup> Southeast University</span>
       </div>
       <div class="publication-links resources">
-        <a class="external-link button is-normal is-rounded is-dark resource" href="assets/SonicWorld.pdf" target="_blank" rel="noopener"><i data-lucide="file-text" aria-hidden="true"></i>Paper</a>
+        <a class="external-link button is-normal is-rounded is-dark resource" href="assets/SonicWorld.pdf?v=20261006-ebcd96cc" target="_blank" rel="noopener"><i data-lucide="file-text" aria-hidden="true"></i>Paper</a>
         <a class="external-link button is-normal is-rounded is-dark resource" href="#examples"><i data-lucide="scan-eye" aria-hidden="true"></i>Visualizations</a>
       </div>
       <p class="release-note">Code and dataset will be released upon paper acceptance.</p>
@@ -72,8 +72,8 @@
       <div class="hero-body">
       <figure class="paper-figure">
         <div class="figure-surface">
-          <img src="assets/dataset-pipeline.webp" width="2401" height="895" alt="Sonic-Bench pipeline: two sources move through an indoor scene, source-specific room impulse responses form an FOA mixture, and aligned trajectories answer target-specific questions.">
-          <button class="zoom-button" type="button" data-zoom="assets/dataset-pipeline.webp" data-title="Sonic-Bench task overview" aria-label="Enlarge Sonic-Bench task overview" title="Enlarge figure"><i data-lucide="maximize-2" aria-hidden="true"></i></button>
+          <img src="assets/dataset-pipeline.webp?v=20261006-ebcd96cc" width="2800" height="1575" alt="Sonic-Bench pipeline: two sources move through an indoor scene, source-specific room impulse responses form an FOA mixture, and aligned trajectories answer target-specific questions.">
+          <button class="zoom-button" type="button" data-zoom="assets/dataset-pipeline.webp?v=20261006-ebcd96cc" data-title="Sonic-Bench task overview" aria-label="Enlarge Sonic-Bench task overview" title="Enlarge figure"><i data-lucide="maximize-2" aria-hidden="true"></i></button>
         </div>
       </figure>
       </div>
@@ -101,8 +101,8 @@
         <div class="section-heading"><p class="eyebrow">SonicWorld</p><h2 class="title is-3">From acoustic evidence to persistent source states</h2><p>Associate observations with individual sources, recover their geometry, and connect their temporal states to language.</p></div>
         <figure class="paper-figure">
           <div class="figure-surface">
-            <img src="assets/architecture.webp" width="2401" height="1329" loading="lazy" alt="SonicWorld architecture with physical, neural and semantic evidence, recurrent source binding, bidirectional refinement, geometric prediction, spatial projection and Omni LLM fine-tuning.">
-            <button class="zoom-button" type="button" data-zoom="assets/architecture.webp" data-title="SonicWorld architecture" aria-label="Enlarge SonicWorld architecture" title="Enlarge figure"><i data-lucide="maximize-2" aria-hidden="true"></i></button>
+            <img src="assets/architecture.webp?v=20261006-ebcd96cc" width="2800" height="1575" loading="lazy" alt="SonicWorld architecture with physical, neural and semantic evidence, recurrent source binding, bidirectional refinement, geometric prediction, spatial projection and Omni LLM fine-tuning.">
+            <button class="zoom-button" type="button" data-zoom="assets/architecture.webp?v=20261006-ebcd96cc" data-title="SonicWorld architecture" aria-label="Enlarge SonicWorld architecture" title="Enlarge figure"><i data-lucide="maximize-2" aria-hidden="true"></i></button>
           </div>
           <figcaption>Physical, neural, and frozen-BEATs semantic evidence are fused before source binding. Source-state features and geometry become spatial tokens for an Omni LLM.</figcaption>
         </figure>
@@ -194,7 +194,7 @@
         </div>
         <div id="case-panel" role="tabpanel" aria-labelledby="case-motion" tabindex="0">
           <figure class="paper-figure gallery-figure">
-            <div class="figure-surface"><img id="case-image" src="assets/motion-cases.webp" width="2401" height="704" loading="lazy" alt="Single- and dual-source movement examples comparing SonicWorld with Spatial-Omni and Classical-IV."><button id="case-zoom" class="zoom-button" type="button" data-zoom="assets/motion-cases.webp" data-title="Source-specific movement reasoning" aria-label="Enlarge movement examples" title="Enlarge figure"><i data-lucide="maximize-2" aria-hidden="true"></i></button></div>
+            <div class="figure-surface"><img id="case-image" src="assets/motion-cases.webp?v=20261006-ebcd96cc" width="2800" height="1533" loading="lazy" alt="Single- and dual-source movement examples comparing SonicWorld with Spatial-Omni and Classical-IV."><button id="case-zoom" class="zoom-button" type="button" data-zoom="assets/motion-cases.webp?v=20261006-ebcd96cc" data-title="Source-specific movement reasoning" aria-label="Enlarge movement examples" title="Enlarge figure"><i data-lucide="maximize-2" aria-hidden="true"></i></button></div>
             <figcaption id="case-caption">SonicWorld correctly predicts Front-Left for the male target and Back-Right for the female target in the queried intervals.</figcaption>
           </figure>
           <p class="case-text" id="case-description">Orange marks the queried intervals. Source identity and temporal context distinguish the target's movement from that of another speaker.</p>
