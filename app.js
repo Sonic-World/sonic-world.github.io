@@ -35,20 +35,20 @@ figureDialog.addEventListener("click", (event) => {
 });
 refreshIcons();
 
-// Values are transcribed from Tables 1 and 2 of the supplied ACL manuscript.
+// Values match Tables 1 and 2 of the final manuscript exported on 2026-10-13.
 const results = [
-  {name:"Gemini 3 Flash", group:"Closed-source models", single:[12.81,88.55,4.40,1.11,7.81], dual:[15.47,88.23,4.50,2.71,8.28]},
+  {name:"Gemini 3 Flash", group:"Closed-source models", single:[12.81,88.55,4.40,1.11,7.81], dual:[15.47,88.23,4.49,2.71,8.28]},
   {name:"Gemini 3.1 Pro", group:"Closed-source models", single:[9.06,90.87,15.78,1.86,12.19], dual:[14.53,90.32,28.88,2.03,14.38]},
-  {name:"Qwen2.5-Omni-7B", group:"Open-source models", single:[12.50,91.18,84.91,98.83,51.88], dual:[12.66,88.33,83.58,34.30,48.59], spatialsceneqa:[40.26,27.57], sls:[11.99,90.65,12.96,31.16]},
-  {name:"InternOmni", group:"Open-source models", single:[12.81,93.72,22.65,40.58,8.13], dual:[12.34,92.90,32.51,43.16,5.94], spatialsceneqa:[69.09,27.55], sls:[12.98,89.23,53.73,7.88]},
-  {name:"Phi-4-MM-5.6B", group:"Open-source models", single:[13.44,81.21,3.29,1.93,6.25], dual:[12.66,79.90,4.13,2.27,5.31], spatialsceneqa:[58.96,17.00], sls:[12.50,90.86,7.02,0.94]},
-  {name:"Audio Flamingo 3", group:"Open-source models", single:[14.06,85.62,9.60,2.41,7.81], dual:[12.34,88.80,17.32,3.12,5.16], spatialsceneqa:[143.12,24.35], sls:[12.32,89.47,13.24,3.35]},
-  {name:"Kimi-Audio-7B-Instruct", group:"Open-source models", single:[12.50,91.78,1.58,2.20,35.31], dual:[11.72,92.23,3.89,1.54,23.75], spatialsceneqa:[60.52,19.83], sls:[11.83,90.80,8.22,3.91]},
-  {name:"BAT", group:"Spatial baselines", single:[8.75,87.51,0.94,0.68,51.25], dual:[11.09,90.34,0.95,0.64,52.66], spatialsceneqa:[136.97,14.42], sls:[12.65,90.32,7.07,0.84]},
-  {name:"Classical-IV", group:"Spatial baselines", single:[29.38,47.92,1.14,0.58,51.56], dual:[20.94,66.06,1.08,0.62,52.66], spatialsceneqa:[71.72,16.22], sls:[13.72,74.59,8.24,1.35]},
-  {name:"Neural-IV", group:"Spatial baselines", single:[10.63,84.00,0.99,0.59,50.31], dual:[11.88,87.83,1.21,0.67,52.34], spatialsceneqa:[117.88,14.60], sls:[12.66,89.95,8.40,1.35]},
-  {name:"Spatial-Omni", group:"Spatial baselines", single:[43.75,46.87,1.57,1.36,49.06], dual:[26.09,62.40,1.12,3.08,50.94], spatialsceneqa:[84.03,30.63], sls:[9.36,94.22,8.67,5.02]},
-  {name:"SonicWorld", group:"SonicWorld", single:[50.00,30.85,0.91,0.56,52.50], dual:[27.03,56.59,0.93,0.60,53.91], spatialsceneqa:[49.35,23.12], sls:[72.39,20.88,7.09,2.40]},
+  {name:"Qwen2.5-Omni-7B", group:"Open-source models", single:[12.50,91.18,84.91,98.83,51.88], dual:[12.66,88.33,83.58,34.30,48.59], spatialsceneqa:[60.47,80.14], sls:[12.69,90.26,88.47,55.04]},
+  {name:"InternOmni", group:"Open-source models", single:[12.81,93.72,22.65,40.58,8.13], dual:[12.34,92.90,32.51,43.16,5.94], spatialsceneqa:[80.54,78.05], sls:[12.38,89.69,57.59,98.83]},
+  {name:"Phi-4-MM-5.6B", group:"Open-source models", single:[13.44,81.21,3.29,1.93,6.25], dual:[12.66,79.90,4.13,2.26,5.31], spatialsceneqa:[61.86,18.31], sls:[12.61,89.43,7.08,1.99]},
+  {name:"Audio Flamingo 3", group:"Open-source models", single:[14.06,85.62,9.60,2.41,7.81], dual:[12.34,88.80,17.32,3.12,5.16], spatialsceneqa:[132.66,24.92], sls:[11.87,89.92,28.08,33.40]},
+  {name:"Kimi-Audio-7B-Instruct", group:"Open-source models", single:[12.50,91.78,1.58,2.20,35.31], dual:[11.72,92.23,3.89,1.54,23.75], spatialsceneqa:[55.37,35.44], sls:[11.63,90.74,9.41,3.90]},
+  {name:"BAT", group:"Spatial baselines", single:[8.75,87.51,0.94,0.68,51.25], dual:[11.09,90.34,0.95,0.64,52.66], spatialsceneqa:[125.37,20.51], sls:[11.85,90.75,7.07,0.84]},
+  {name:"Classical-IV", group:"Spatial baselines", single:[29.38,47.92,1.14,0.58,51.56], dual:[20.94,66.06,1.08,0.62,52.66], spatialsceneqa:[33.56,19.17], sls:[14.49,75.53,7.70,0.89]},
+  {name:"Neural-IV", group:"Spatial baselines", single:[10.63,84.00,0.99,0.59,50.31], dual:[11.88,87.83,1.21,0.67,52.34], spatialsceneqa:[88.33,18.49], sls:[12.71,89.38,7.74,0.78]},
+  {name:"Spatial-Omni", group:"Spatial baselines", single:[43.75,46.87,1.57,1.36,49.06], dual:[26.09,62.40,1.12,3.08,50.94], spatialsceneqa:[108.28,22.84], sls:[27.14,70.74,16.64,5.02]},
+  {name:"SonicWorld", group:"SonicWorld", single:[50.00,30.85,0.91,0.56,52.50], dual:[27.03,56.59,0.93,0.60,53.91], spatialsceneqa:[21.35,20.51], sls:[73.98,19.29,7.09,0.89]},
 ];
 
 function renderResults(setting) {
@@ -141,7 +141,7 @@ const caseSelector = document.getElementById("case-selector");
 function renderCase(index) {
   const scene = cases[currentGroup][index];
   const image = document.getElementById("case-image");
-  image.src = `assets/${scene.image}.webp?v=20261006-ebcd96cc`;
+  image.src = `assets/${scene.image}.webp?v=20261013-final`;
   image.alt = scene.title;
   image.width = scene.width;
   image.height = scene.height;
